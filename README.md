@@ -2,6 +2,8 @@
 
 A modern, responsive, and beautifully animated image slider built with **HTML5**, **CSS3**, and **Vanilla JavaScript**. Featuring smooth sliding transitions, background preview cards, an automatic progression timer bar, and fully customizable content blocks.
 
+![Project Preview](https://images.unsplash.com/photo-1543589077-47d81606c1bf?auto=format&fit=crop&w=1200&q=80)
+
 ---
 
 ## ✨ Features
