@@ -14,7 +14,7 @@ A modern, responsive, and beautifully animated image slider built with **HTML5**
 
 ---
 
-## 🌍 Live Demo 
+## 🌍 Live Demo https://mrsulemankurrey25.github.io/Image-Slider
 
 ## 📂 Project Structure
 
