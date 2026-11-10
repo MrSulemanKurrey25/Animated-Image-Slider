@@ -1,0 +1,298 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+/* Reset & CSS Variables */
+:root {
+  --primary-color: #14ff72cb;
+  --text-white: #ffffff;
+  --text-dark: #000000;
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --transition-fast: 0.3s ease;
+  --transition-slow: 1s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Header Section */
+header {
+  width: 100%;
+  height: 50px;
+  padding-left: 100px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 1000;
+}
+
+header nav a {
+  color: var(--text-white);
+  margin-right: 5px;
+  padding: 5px 10px;
+  font-size: 16px;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color var(--transition-fast);
+}
+
+header nav a.active,
+header nav a:hover {
+  background-color: var(--primary-color);
+}
+
+/* Carousel Main Structure */
+.carousel {
+  width: 100vw;
+  height: 100vh;
+  margin-top: -50px;
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel .list .item {
+  width: 180px;
+  height: 250px;
+  position: absolute;
+  top: 80%;
+  left: 70%;
+  transform: translateY(-70%);
+  border-radius: 20px;
+  box-shadow: 0 25px 50px var(--shadow-color);
+  background-position: center;
+  background-size: cover;
+  z-index: 100;
+  transition: transform var(--transition-slow), left var(--transition-slow), width var(--transition-slow), height var(--transition-slow), border-radius var(--transition-slow);
+}
+
+/* Active & Thumbnail Positions */
+.carousel .list .item:nth-child(1),
+.carousel .list .item:nth-child(2) {
+  top: 0;
+  left: 0;
+  transform: translate(0, 0);
+  border-radius: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel .list .item:nth-child(3) {
+  left: 67%;
+}
+
+.carousel .list .item:nth-child(4) {
+  left: calc(67% + 200px);
+}
+
+.carousel .list .item:nth-child(5) {
+  left: calc(67% + 400px);
+}
+
+.carousel .list .item:nth-child(6) {
+  left: calc(67% + 600px);
+}
+
+.carousel .list .item:nth-child(n+7) {
+  left: calc(67% + 800px);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Slide Content */
+.list .item .content {
+  position: absolute;
+  top: 50%;
+  left: 100px;
+  transform: translateY(-50%);
+  width: 400px;
+  max-width: 80%;
+  text-align: left;
+  color: var(--text-white);
+  display: none;
+}
+
+.list .item:nth-child(2) .content {
+  display: block;
+}
+
+.content .title {
+  font-size: 100px;
+  text-transform: uppercase;
+  color: var(--primary-color);
+  font-weight: 700;
+  line-height: 1;
+  opacity: 0;
+  animation: animateText 1s cubic-bezier(0.25, 1, 0.5, 1) 0.3s 1 forwards;
+}
+
+.content .name {
+  font-size: 100px;
+  text-transform: uppercase;
+  font-weight: 700;
+  line-height: 1;
+  text-shadow: 3px 4px 4px rgba(255, 255, 255, 0.8);
+  opacity: 0;
+  animation: animateText 1s cubic-bezier(0.25, 1, 0.5, 1) 0.6s 1 forwards;
+}
+
+.content .des {
+  margin: 10px 0 20px 5px;
+  font-size: 18px;
+  opacity: 0;
+  animation: animateText 1s cubic-bezier(0.25, 1, 0.5, 1) 0.9s 1 forwards;
+}
+
+.content .btn {
+  margin-left: 5px;
+  opacity: 0;
+  animation: animateText 1s cubic-bezier(0.25, 1, 0.5, 1) 1.2s 1 forwards;
+}
+
+.content .btn button {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 500;
+  border: 2px solid var(--text-white);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.content .btn button:nth-child(1) {
+  margin-right: 15px;
+  background-color: var(--text-white);
+  color: var(--text-dark);
+}
+
+.content .btn button:nth-child(2) {
+  background-color: transparent;
+  color: var(--primary-color);
+}
+
+.content .btn button:nth-child(2):hover {
+  background-color: var(--primary-color);
+  color: var(--text-white);
+  border-color: var(--primary-color);
+}
+
+@keyframes animateText {
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+    filter: blur(33px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+/* Arrow Navigation Buttons */
+.arrows {
+  position: absolute;
+  top: 80%;
+  right: 52%;
+  z-index: 100;
+  width: 300px;
+  max-width: 30%;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.arrows button {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  color: var(--text-white);
+  border: none;
+  outline: none;
+  font-size: 18px;
+  font-weight: 700;
+  transition: background-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
+  cursor: pointer;
+}
+
+.arrows button:hover {
+  background-color: var(--text-white);
+  color: var(--text-dark);
+  transform: scale(1.05);
+}
+
+/* Time Running Bar */
+.carousel .timeRunning {
+  position: absolute;
+  z-index: 1000;
+  width: 0%;
+  height: 4px;
+  background-color: var(--primary-color);
+  left: 0;
+  top: 0;
+  animation: runningTime 7s linear 1 forwards;
+}
+
+@keyframes runningTime {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* Responsive Design */
+@media screen and (max-width: 999px) {
+  header {
+    padding-left: 50px;
+  }
+
+  .list .item .content {
+    left: 50px;
+  }
+
+  .content .title,
+  .content .name {
+    font-size: 70px;
+  }
+
+  .content .des {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 690px) {
+  header {
+    padding-left: 20px;
+  }
+
+  header nav a {
+    font-size: 14px;
+    margin-right: 0;
+  }
+
+  .list .item .content {
+    top: 40%;
+    left: 20px;
+  }
+
+  .content .title,
+  .content .name {
+    font-size: 45px;
+  }
+
+  .content .btn button {
+    padding: 8px 14px;
+    font-size: 14px;
+  }
+
+  .arrows {
+    right: 20px;
+    top: 85%;
+  }
+}
