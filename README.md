@@ -22,4 +22,4 @@ If you are using the multi-file setup:
 ```text
 ├── index.html       # Main HTML markup structure
 ├── style.css        # Styles, layout, animations, and responsive media queries
-└── app.js           # Slider logic, timer controls, and event listeners
+└── script.js           # Slider logic, timer controls, and event listeners
